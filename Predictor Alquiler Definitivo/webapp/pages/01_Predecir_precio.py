@@ -5,7 +5,7 @@ import pickle
 from settings.db_connection import get_engine
 from sqlalchemy import text
 import settings.modstopage as mod
-
+import os
 
 # Configuracion de la pagina
 st.set_page_config(
@@ -39,11 +39,13 @@ zonas_verdes = params.get("zonas_verdes", "false").lower() == "true"
 @st.cache_resource
 def load_resources():
     # Cargar modelo Ridge
-    with open('.\\resources\modelo_mll.pkl', 'rb') as f:
+    model_path = os.path.join("resources", "modelo_mll.pkl")
+    with open(model_path, 'rb') as f:
         model = pickle.load(f)
     
     # Cargar columnas esperadas por el modelo
-    encoded_columns = np.load('.\\resources\encoded_columns.npy', allow_pickle=True)
+    encoded_columns_path = os.path.join("resources", "encoded_columns.npy")
+    encoded_columns = np.load(encoded_columns_path, allow_pickle=True)
     
     return model, encoded_columns
 
