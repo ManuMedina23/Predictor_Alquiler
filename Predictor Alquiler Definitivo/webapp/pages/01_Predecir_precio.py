@@ -39,12 +39,13 @@ zonas_verdes = params.get("zonas_verdes", "false").lower() == "true"
 @st.cache_resource
 def load_resources():
     # Cargar modelo Ridge
-    model_path = os.path.join("resources", "modelo_mll.pkl")
+    base_path = os.path.dirname(__file__)
+    model_path = os.path.join(base_path, "..", "resources", "modelo_mll.pkl")
     with open(model_path, 'rb') as f:
         model = pickle.load(f)
     
     # Cargar columnas esperadas por el modelo
-    encoded_columns_path = os.path.join("resources", "encoded_columns.npy")
+    encoded_columns_path = os.path.join(base_path, "..", "resources", "encoded_columns.npy")
     encoded_columns = np.load(encoded_columns_path, allow_pickle=True)
     
     return model, encoded_columns
