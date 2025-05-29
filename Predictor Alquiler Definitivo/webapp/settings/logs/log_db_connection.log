@@ -1,0 +1,2 @@
+2025-05-02 19:44:59,660 - logger - INFO - Logger iniciado en logs\log_db_connection.log
+2025-05-02 19:44:59,704 - logger - INFO - Se ha conectado con exito a la bd
