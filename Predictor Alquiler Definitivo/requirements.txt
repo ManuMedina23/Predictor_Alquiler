@@ -7,7 +7,6 @@ pandas
 numpy
 plotly
 pydeck
-psycopg2
 scikit-learn
 beautifulsoup4
 undetected-chromedriver
