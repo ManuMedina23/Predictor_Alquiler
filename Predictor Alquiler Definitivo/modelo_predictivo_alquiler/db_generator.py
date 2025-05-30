@@ -12,7 +12,7 @@ logger = logger_config.get_logger()
 # Cargar variables de entorno
 load_dotenv()
 
-NEW_DB_NAME = "idealista_analyzer" # Nombre de la bd
+NEW_DB_NAME = os.getenv('DB_NAME') # Nombre de la bd
 # Obtener una conexión directa sin SQLAlchemy para crear la BD   
 def get_raw_connection():
     
